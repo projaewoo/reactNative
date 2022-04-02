@@ -10,8 +10,6 @@ const DateHead = (props) => {
 
     const { top } = useSafeAreaInsets();
 
-    console.log(top);
-
     return (
         <>
             <View style={[ 

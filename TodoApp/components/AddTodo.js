@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, Image, TouchableOpacity, Platform, TouchableNativeFeedback, Keyboard } from 'react-native';
 
-const AddTodo = () => {
+const AddTodo = ({ onInsert }) => {
     const [text, setText] = useState('');
 
     const onPress = () => {
+        onInsert(text);
         setText('');
         Keyboard.dismiss();     // 현재 나타난 키보드 닫기
     }
-
+    
     const plusButton = () => {
         return (
             Platform.select({
