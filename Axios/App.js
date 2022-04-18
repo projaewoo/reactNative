@@ -3,10 +3,13 @@ import { KeyboardAvoidingView, Platform, StyleSheet, View, Text } from 'react-na
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import ViewComponent from './components/ViewComponent';
-
+import TopBar from './components/TopBar';
+import MainContent from './components/MainContent';
 
 const App = () => {
+
+  const [clickedMenu, setClickedMenu] = useState('');
+
   return (
     <SafeAreaProvider>
       <SafeAreaView edges={[ 'bottom' ]} style={styles.block}>
@@ -14,7 +17,8 @@ const App = () => {
           behavior={Platform.select({ ios: 'padding', android: undefined })}
           style={styles.avoid}
         >
-            <ViewComponent/>
+            <TopBar setClickedMenu={setClickedMenu} />
+            <MainContent />
         </KeyboardAvoidingView>
       </SafeAreaView>
     </SafeAreaProvider>
