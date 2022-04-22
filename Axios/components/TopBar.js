@@ -13,8 +13,9 @@ const TopBar = (props) => {
             styles.topBar,
             { paddingTop: top + 10 }
         ]}>
-            {topBar.map(menu => (
+            {topBar.map((menu, index) => (
                 <TouchableOpacity 
+                    key={index}
                     style={ styles.menuBox } 
                     onPress={(e) => console.log(e.target.valueOf())}
                 >
